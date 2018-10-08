@@ -1,6 +1,6 @@
 <?php
 
-	$email = $_POST['txtEmail']
+	$email = $_POST['txtEmail'];
 	$password = $_POST['txtPassword'];
 
 

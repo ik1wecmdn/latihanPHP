@@ -23,11 +23,12 @@
 					<!-- Start your project here-->
 					<h1>Data Siswa</h1>
 					
-					<p><a href="#" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah Siswa</a></p>
+					<p><a href="form-siswa.php" class="btn btn-primary"><i class="fa fa-plus"></i> Tambah Siswa</a></p>
 					<?php
 					require_once("database.php");
-					$db = new MyDatabase();
-					$data = $db->GetData("SELECT * FROM siswa");
+					try{
+						$db = new MyDatabase();
+						$data = $db->GetData("select * from siswa");
 					?>
 					<div class="table-responsive text-nowrap">
 						<table id="tabelSiswa" class="table table-striped table-bordered">
@@ -65,7 +66,12 @@
 								?>
 							</tbody>
 						</table>
-					</div>
+					</div> <!-- tutupe div table responsive -->
+					<?php
+					}catch(Exception $ex){
+						echo "<h1>{$ex->getMessage()}</h1>";
+					}
+					?>
 				</div>
 			</div>
 		</div>

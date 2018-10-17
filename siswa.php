@@ -1,3 +1,5 @@
+<?php include('cek_session.php'); ?>
+
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -27,6 +29,7 @@
 					<?php
 					require_once("database.php");
 					try{
+
 						$db = new MyDatabase();
 						$data = $db->GetData("select * from siswa");
 					?>
@@ -57,8 +60,8 @@
 									<td><?php echo $row['no_hp']; ?></td>
 									<td><?php echo $row['email']; ?></td>
 									<td align="center">
-										<a href="#" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> Edit</a>
-										<a href="#" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Hapus</a>
+										<a href="form-siswa.php?nis=<?php echo $row['nis']; ?>" class="btn btn-info btn-sm"><i class="fa fa-edit"></i> Edit</a>
+										<a href="delete-siswa.php?nis=<?php echo $row['nis']; ?>" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Hapus</a>
 									</td>
 								</tr>
 								<?php
